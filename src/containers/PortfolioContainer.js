@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import Stock from '../components/Stock'
 
-class PortfolioContainer extends Component {
+function PortfolioContainer(props) {
 
-  render() {
+const portfolioArray = () => {
+  let portfolioStocks = props.portfolioStocks
+   return portfolioStocks.map(stockEl => <Stock key={stockEl.id} stockObject={stockEl} portfolioToggle={props.portfolioToggle} />)
+ }
+
+
+ 
     return (
       <div>
         <h2>My Portfolio</h2>
           {
-            //render your portfolio stocks here
+            portfolioArray()
           }
       </div>
     );
-  }
+  
 
 }
 

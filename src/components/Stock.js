@@ -1,21 +1,37 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const Stock = () => (
-  <div>
+class Stock extends Component{
+  
+  state = {
+      beenAdded: false
+  }
 
-    <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">{
-            //Company Name
-          }</h5>
-        <p className="card-text">{
-            //ticker: stock price
-          }</p>
+  
+  portfolioToggle = () => {
+      this.props.portfolioToggle(this.props.stockObject)
+  }
+
+  render () {
+   
+    const stockObject = this.props.stockObject
+
+    return (
+
+      <div>
+          <div className="card" onClick={this.portfolioToggle}>
+            <div className="card-body">
+              <h5 className="card-title">{stockObject.name}</h5>
+              <p className="card-text">{stockObject.price}</p>
+            </div>
+          </div>
       </div>
-    </div>
+         
+    )
 
+  }
 
-  </div>
-);
+ 
+
+}//end of class
 
 export default Stock
